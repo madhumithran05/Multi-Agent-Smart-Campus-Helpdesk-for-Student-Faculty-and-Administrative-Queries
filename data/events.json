@@ -1,0 +1,60 @@
+[
+  {
+    "title": "National FDP - Sustainable Renewable Energy Systems",
+    "tag": "Workshop",
+    "date": "DEC 14-18",
+    "desc": "Five-day national-level faculty development programme on integrating AI, power electronics and electric drives into renewable energy systems, with MATLAB/Simulink, PSIM and Python lab sessions. Registration fee Rs.200; last date to register: Dec 10.",
+    "loc": "Dept. of EEE, BIT",
+    "link": "https://www.bitsathy.ac.in/eee-fdp-2026/"
+  },
+  {
+    "title": "ICAISC 2027 - Intl. Conference on AI & Smart Computing",
+    "tag": "Seminar",
+    "date": "MAR 18-20, 2027",
+    "desc": "Seventh international conference by the CSE, IT, CT & ISE departments (hybrid mode) with keynote talks, technical sessions and workshops. Registration closes Mar 1, 2027; students Rs.1,000.",
+    "loc": "BIT, Sathyamangalam (Hybrid)",
+    "link": "https://www.bitsathy.ac.in/icaisc-27/"
+  },
+  {
+    "title": "CodeFest 2026",
+    "tag": "Hackathon",
+    "date": "JUL 14-15",
+    "desc": "36-hour build sprint with mentors from three unicorn startups. Cash prizes for top three teams.",
+    "loc": "Innovation Hub"
+  },
+  {
+    "title": "AI in Healthcare - Guest Talk",
+    "tag": "Workshop",
+    "date": "JUL 09",
+    "desc": "A hands-on session on diagnostic ML models, led by alumni now at a med-tech company.",
+    "loc": "Auditorium B"
+  },
+  {
+    "title": "Placement Drive - NexaCore Systems",
+    "tag": "Placement",
+    "date": "JUL 21",
+    "desc": "On-campus drive for final-year CSE/ECE students. Pre-placement talk followed by online test.",
+    "loc": "Seminar Hall 1"
+  },
+  {
+    "title": "Robotics Bootcamp",
+    "tag": "Workshop",
+    "date": "JUL 11-12",
+    "desc": "Build and program a line-following bot from scratch. Kits provided, no experience required.",
+    "loc": "Robotics Lab"
+  },
+  {
+    "title": "Design Systems Seminar",
+    "tag": "Seminar",
+    "date": "JUL 17",
+    "desc": "How top product teams build and scale a design language, with live critique of student portfolios.",
+    "loc": "Design Studio"
+  },
+  {
+    "title": "Placement Drive - Solaris Analytics",
+    "tag": "Placement",
+    "date": "JUL 25",
+    "desc": "Data & analytics roles for all branches. Resume screening opens one week prior.",
+    "loc": "Seminar Hall 2"
+  }
+]

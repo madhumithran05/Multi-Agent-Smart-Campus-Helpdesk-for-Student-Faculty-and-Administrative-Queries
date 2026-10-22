@@ -1,0 +1,21 @@
+{
+  "default_student": {
+    "name": "Anjali Rao",
+    "roll_no": "21CSE0142",
+    "overall_attendance": 82,
+    "subjects": [
+      {"name": "Data Structures", "attendance": 78},
+      {"name": "DBMS", "attendance": 84},
+      {"name": "Operating Systems", "attendance": 88},
+      {"name": "Computer Networks", "attendance": 80}
+    ],
+    "upcoming_exams": [
+      {"subject": "DBMS Mid-Sem", "date": "Jul 05", "time": "9:30 AM", "room": "A-204"}
+    ],
+    "pending_assignments": [
+      {"subject": "Data Structures", "title": "Assignment 2", "due": "Tomorrow, 11:59 PM"}
+    ],
+    "fee_due": 42000,
+    "fee_due_date": "Jul 07"
+  }
+}

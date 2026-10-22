@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Campus Helpdesk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .navbar {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            font-size: 1.5rem;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #3498db;
+        }
+
+        .stat-card.success {
+            border-left-color: #27ae60;
+        }
+
+        .stat-card.warning {
+            border-left-color: #e74c3c;
+        }
+
+        .stat-card.info {
+            border-left-color: #9b59b6;
+        }
+
+        .stat-card h3 {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .stat-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-card .percentage {
+            font-size: 0.9rem;
+            color: #27ae60;
+            margin-top: 0.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .queries-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .query-text {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge.answered {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.unknown {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge.partial {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge.needs_follow_up {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .agent-pills {
+            display: flex;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+
+        .agent-pill {
+            background: #e8f4f8;
+            color: #2c5282;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .action-btn {
+            background: none;
+            border: 1px solid #3498db;
+            color: #3498db;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+
+        .close-btn:hover {
+            color: #2c3e50;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar input {
+            padding: 0.6rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            width: 250px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>👨‍💼 Admin Dashboard</h1>
+        <div>
+            <a href="/">Back to Helpdesk</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card success">
+                <h3>Total Queries</h3>
+                <div class="value" id="total-queries">0</div>
+            </div>
+            <div class="stat-card success">
+                <h3>Answered ✓</h3>
+                <div class="value" id="answered-count">0</div>
+                <div class="percentage" id="success-rate">0%</div>
+            </div>
+            <div class="stat-card warning">
+                <h3>Unknown ❓</h3>
+                <div class="value" id="unknown-count">0</div>
+            </div>
+            <div class="stat-card info">
+                <h3>Partial Answers</h3>
+                <div class="value" id="partial-count">0</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('all')">📋 All Queries</button>
+            <button class="tab" onclick="switchTab('unknown')">❓ Unknown Questions</button>
+        </div>
+
+        <!-- All Queries Tab -->
+        <div id="all-tab" class="tab-content active">
+            <div class="filter-bar">
+                <input type="text" id="search-all" placeholder="Search questions..." onkeyup="filterQueries()">
+            </div>
+            <div id="all-queries-loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading queries...</p>
+            </div>
+            <div class="queries-table">
+                <table id="all-queries-table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Agents</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                            <th>User</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all-queries-body">
+                    </tbody>
+                </table>
+                <div id="no-all-queries" class="no-data" style="display: none;">No queries found</div>
+            </div>
+        </div>
+
+        <!-- Unknown Queries Tab -->
+        <div id="unknown-tab" class="tab-content">
+            <div class="filter-bar">
+                <input type="text" id="search-unknown" placeholder="Search unknown questions..." onkeyup="filterUnknown()">
+            </div>
+            <div id="unknown-queries-loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading unknown queries...</p>
+            </div>
+            <div class="queries-table">
+                <table id="unknown-queries-table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Agents Tried</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="unknown-queries-body">
+                    </tbody>
+                </table>
+                <div id="no-unknown-queries" class="no-data" style="display: none;">✓ All queries have been answered!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Query Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Mark Query Status</h2>
+            <div class="form-group">
+                <label>Question:</label>
+                <p id="modal-question" style="padding: 0.75rem; background: #f5f5f5; border-radius: 4px;"></p>
+            </div>
+            <div class="form-group">
+                <label>Mark as:</label>
+                <select id="quality-select">
+                    <option value="answered">✓ Answered</option>
+                    <option value="partial">~ Partial Answer</option>
+                    <option value="unknown">❓ Unknown</option>
+                    <option value="needs_follow_up">→ Needs Follow-up</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Feedback/Notes:</label>
+                <textarea id="feedback-text" placeholder="Add notes about this query..."></textarea>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveQueryStatus()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQueryId = null;
+        let allQueries = [];
+        let unknownQueries = [];
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQueryStats();
+            loadAllQueries();
+            loadUnknownQueries();
+            // Refresh every 30 seconds
+            setInterval(() => {
+                loadQueryStats();
+                loadAllQueries();
+                loadUnknownQueries();
+            }, 30000);
+        });
+
+        function switchTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tab + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function loadQueryStats() {
+            fetch('/admin/query-stats')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('total-queries').textContent = data.total_queries;
+                    document.getElementById('answered-count').textContent = data.answered;
+                    document.getElementById('unknown-count').textContent = data.unknown;
+                    document.getElementById('partial-count').textContent = data.partial;
+                    document.getElementById('success-rate').textContent = Math.round(data.success_rate) + '%';
+                })
+                .catch(err => console.error('Error loading stats:', err));
+        }
+
+        function loadAllQueries() {
+            document.getElementById('all-queries-loading').style.display = 'block';
+            fetch('/admin/queries')
+                .then(res => res.json())
+                .then(data => {
+                    allQueries = data;
+                    renderAllQueries(data);
+                    document.getElementById('all-queries-loading').style.display = 'none';
+                })
+                .catch(err => {
+                    console.error('Error loading queries:', err);
+                    document.getElementById('all-queries-loading').style.display = 'none';
+                });
+        }
+
+        function loadUnknownQueries() {
+            document.getElementById('unknown-queries-loading').style.display = 'block';
+            fetch('/admin/unknown-queries')
+                .then(res => res.json())
+                .then(data => {
+                    unknownQueries = data;
+                    renderUnknownQueries(data);
+                    document.getElementById('unknown-queries-loading').style.display = 'none';
+                })
+                .catch(err => {
+                    console.error('Error loading unknown queries:', err);
+                    document.getElementById('unknown-queries-loading').style.display = 'none';
+                });
+        }
+
+        function renderAllQueries(queries) {
+            const tbody = document.getElementById('all-queries-body');
+            tbody.innerHTML = '';
+            
+            if (queries.length === 0) {
+                document.getElementById('no-all-queries').style.display = 'block';
+                return;
+            }
+            document.getElementById('no-all-queries').style.display = 'none';
+
+            queries.forEach(q => {
+                const row = document.createElement('tr');
+                const agentBadges = q.agents.map(a => `<span class="agent-pill">${a}</span>`).join('');
+                row.innerHTML = `
+                    <td class="query-text" title="${q.question}">${q.question}</td>
+                    <td><div class="agent-pills">${agentBadges}</div></td>
+                    <td><span class="badge ${q.quality}">${q.quality}</span></td>
+                    <td>${q.timestamp}</td>
+                    <td>${q.user}</td>
+                    <td><button class="action-btn" onclick="openEditModal(${q.id}, '${q.question.replace(/'/g, "\\'")}')">Edit</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function renderUnknownQueries(queries) {
+            const tbody = document.getElementById('unknown-queries-body');
+            tbody.innerHTML = '';
+            
+            if (queries.length === 0) {
+                document.getElementById('no-unknown-queries').style.display = 'block';
+                return;
+            }
+            document.getElementById('no-unknown-queries').style.display = 'none';
+
+            queries.forEach(q => {
+                const row = document.createElement('tr');
+                const agentBadges = q.agents.map(a => `<span class="agent-pill">${a}</span>`).join('');
+                row.innerHTML = `
+                    <td class="query-text" title="${q.question}">${q.question}</td>
+                    <td><div class="agent-pills">${agentBadges}</div></td>
+                    <td><span class="badge ${q.quality}">${q.quality}</span></td>
+                    <td>${q.timestamp}</td>
+                    <td><button class="action-btn" onclick="openEditModal(${q.id}, '${q.question.replace(/'/g, "\\'")}')">Resolve</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function filterQueries() {
+            const search = document.getElementById('search-all').value.toLowerCase();
+            const filtered = allQueries.filter(q => q.question.toLowerCase().includes(search));
+            renderAllQueries(filtered);
+        }
+
+        function filterUnknown() {
+            const search = document.getElementById('search-unknown').value.toLowerCase();
+            const filtered = unknownQueries.filter(q => q.question.toLowerCase().includes(search));
+            renderUnknownQueries(filtered);
+        }
+
+        function openEditModal(queryId, question) {
+            currentQueryId = queryId;
+            document.getElementById('modal-question').textContent = question;
+            document.getElementById('quality-select').value = 'answered';
+            document.getElementById('feedback-text').value = '';
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('active');
+            currentQueryId = null;
+        }
+
+        function saveQueryStatus() {
+            const quality = document.getElementById('quality-select').value;
+            const feedback = document.getElementById('feedback-text').value;
+
+            fetch(`/admin/query/${currentQueryId}/mark`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ quality, feedback })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert('✓ Query status updated!');
+                closeModal();
+                loadQueryStats();
+                loadAllQueries();
+                loadUnknownQueries();
+            })
+            .catch(err => {
+                console.error('Error:', err);
+                alert('Error updating query');
+            });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('editModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

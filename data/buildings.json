@@ -1,0 +1,51 @@
+[
+  {
+    "id": "gate",
+    "name": "Main Gate",
+    "color": "#5C637A",
+    "lat": 11.49585,
+    "lng": 77.2784
+  },
+  {
+    "id": "lib",
+    "name": "Central Library",
+    "color": "#4FD1C5",
+    "lat": 11.497,
+    "lng": 77.277
+  },
+  {
+    "id": "admin",
+    "name": "Admin Block",
+    "color": "#F2795C",
+    "lat": 11.4966,
+    "lng": 77.2762
+  },
+  {
+    "id": "robolab",
+    "name": "Robotics Lab",
+    "color": "#5CA8F2",
+    "lat": 11.4979,
+    "lng": 77.2756
+  },
+  {
+    "id": "cse",
+    "name": "CSE Dept",
+    "color": "#9B8CFF",
+    "lat": 11.4982,
+    "lng": 77.2768
+  },
+  {
+    "id": "aud",
+    "name": "Auditorium B",
+    "color": "#A8D65C",
+    "lat": 11.4976,
+    "lng": 77.2747
+  },
+  {
+    "id": "dean",
+    "name": "Dean's Office",
+    "color": "#E8A33D",
+    "lat": 11.497,
+    "lng": 77.2752
+  }
+]

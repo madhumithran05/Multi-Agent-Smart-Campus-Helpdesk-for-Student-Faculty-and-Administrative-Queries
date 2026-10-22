@@ -1,0 +1,357 @@
+[
+  {
+    "name": "Dr. C. Palanisamy",
+    "dept": "Administration",
+    "designation": "Principal",
+    "status": "on",
+    "room": "Principal's Office",
+    "free_from": "now",
+    "free_until": "4:00 PM"
+  },
+  {
+    "name": "Dr. K. Sivakumar",
+    "dept": "Administration",
+    "designation": "Dean – Administration",
+    "status": "busy",
+    "room": "Administrative Block",
+    "free_from": "3:30 PM",
+    "free_until": "5:00 PM"
+  },
+  {
+    "name": "Dr. S. P. Prakash",
+    "dept": "ECE",
+    "designation": "Associate Professor & Head",
+    "status": "on",
+    "room": "ECE Department",
+    "free_from": "now",
+    "free_until": "2:00 PM"
+  },
+  {
+    "name": "Dr. C. Poongodi",
+    "dept": "ECE",
+    "designation": "Professor",
+    "status": "busy",
+    "room": "ECE Department",
+    "free_from": "3:00 PM",
+    "free_until": "4:30 PM"
+  },
+  {
+    "name": "Dr. K. T. Maheswari",
+    "dept": "EEE",
+    "designation": "Associate Professor & Head",
+    "status": "on",
+    "room": "EEE Department",
+    "free_from": "now",
+    "free_until": "1:00 PM"
+  },
+  {
+    "name": "Dr. K. S. Vairavel",
+    "dept": "EIE",
+    "designation": "Associate Professor & Head",
+    "status": "off",
+    "room": "EIE Department",
+    "free_from": "tomorrow",
+    "free_until": "10:00 AM"
+  },
+  {
+    "name": "Dr. M. Kalaiyarasi",
+    "dept": "EIE",
+    "designation": "Associate Professor",
+    "status": "on",
+    "room": "EIE Department",
+    "free_from": "now",
+    "free_until": "12:30 PM"
+  },
+  {
+    "name": "Dr. D. Deepa",
+    "dept": "Biomedical Engg",
+    "designation": "Professor",
+    "status": "busy",
+    "room": "BME Department",
+    "free_from": "2:30 PM",
+    "free_until": "4:00 PM"
+  },
+  {
+    "name": "Dr. K. Premalatha",
+    "dept": "CSE",
+    "designation": "Professor",
+    "status": "on",
+    "room": "CSE Department",
+    "free_from": "now",
+    "free_until": "3:00 PM"
+  },
+  {
+    "name": "Dr. D. Sasikala",
+    "dept": "CSE",
+    "designation": "Professor",
+    "status": "busy",
+    "room": "CSE Department",
+    "free_from": "3:30 PM",
+    "free_until": "5:00 PM"
+  },
+  {
+    "name": "Dr. P. Sathishkumar",
+    "dept": "CSE",
+    "designation": "Faculty",
+    "status": "on",
+    "room": "CSE Department",
+    "free_from": "now",
+    "free_until": "1:30 PM"
+  },
+  {
+    "name": "Dr. S. N. Sangeethaa",
+    "dept": "CSE",
+    "designation": "Faculty",
+    "status": "off",
+    "room": "CSE Department",
+    "free_from": "tomorrow",
+    "free_until": "11:00 AM"
+  },
+  {
+    "name": "Dr. P. S. Dinesh",
+    "dept": "CSE",
+    "designation": "Associate Professor",
+    "status": "on",
+    "room": "CSE Department",
+    "free_from": "now",
+    "free_until": "2:00 PM"
+  },
+  {
+    "name": "Prof. D. Prabha Devi",
+    "dept": "CSE",
+    "designation": "Assistant Professor",
+    "status": "busy",
+    "room": "CSE Department",
+    "free_from": "2:00 PM",
+    "free_until": "4:00 PM"
+  },
+  {
+    "name": "Prof. B. Sathiya",
+    "dept": "CSE",
+    "designation": "Assistant Professor",
+    "status": "on",
+    "room": "CSE Department",
+    "free_from": "now",
+    "free_until": "12:00 PM"
+  },
+  {
+    "name": "Dr. Bharathi A",
+    "dept": "AIML",
+    "designation": "Professor & Head",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/bharathi-a/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Dr. Gopalakrishnan B",
+    "dept": "AIML",
+    "designation": "Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/gopalakrishnan-b/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Dr. Rajasekar S S",
+    "dept": "AIML",
+    "designation": "Associate Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/rajasekar-s-s/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Dr. Padmashree A",
+    "dept": "AIML",
+    "designation": "Associate Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/padmashree-a/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Dr. Karthikeyan G",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level III",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/dr-karthikeyan-g/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Eugene Berna I",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level III",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/eugene-berna-i/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Balamurugan E",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level II",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/balamurugan-e/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Haripriya R",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level II",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/hari-priya-r/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Nithin P",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level II",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/nithin-p/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Satheshkumar K",
+    "dept": "AIML",
+    "designation": "Assistant Professor Level II",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/satheshkumar-k/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Karthika S",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/karthika-s/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Ezhil R",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/ezhil-r/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Pavithra G",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/mrs-pavithra-g/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Kanimozhi A",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/kanimozhi-a/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Nishanthini S",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/nishanthini-s/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Lokeswari P",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/lokeswari-p/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Gayathridevi M",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/gayathridevi-m/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Sasithra S",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/sasithra-s/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Saranya M K",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/prof-saranya-m-k-2/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Aathifa Nusrath S",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/prof-aathifa-nusrath-s/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Priyadharshini M",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/prof-priyadharshini-m/#artificial-intelligence-and-machine-learning"
+  },
+  {
+    "name": "Prof. Haripriya S",
+    "dept": "AIML",
+    "designation": "Assistant Professor",
+    "status": "na",
+    "room": "AIML Department",
+    "free_from": "",
+    "free_until": "",
+    "profile": "https://www.bitsathy.ac.in/departments/faculty/prof-haripriya-s/#artificial-intelligence-and-machine-learning"
+  }
+]
